@@ -1,12 +1,12 @@
 <div style="position: relative;">
-  <button class="btn btn-xs btn-outline-secondary collapse" style="right: 2px;">
-    <fa-icon icon="minus-square"></fa-icon>
+  <button class="btn btn-xs btn-outline-secondary collapse" style="right: 2px;" (click)="collapseAll()">
+    <i class="fa fa-minus-square"></i>
   </button>
-  <button class="btn btn-xs btn-outline-secondary collapse" style="right: 30px;">
-    <fa-icon icon="plus-square"></fa-icon>
+  <button class="btn btn-xs btn-outline-secondary collapse" style="right: 30px;" (click)="expandAll()">
+    <i class="fa fa-plus-square"></i>
   </button>
-  <p>Address Space</p>
-  <div id="js-tree">
+  <h6 class="text-center text-muted lead ">Address Space</h6>
+  <div id="address-space-tree">
   </div>
 
 </div>

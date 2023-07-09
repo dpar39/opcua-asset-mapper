@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Anguler: Edge",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}/ui"
+        },
+        {
+            "name": "Python: Quart App",
+            "type": "python",
+            "request": "launch",
+            "module": "server.src.app",
+            "justMyCode": true
+        }
+    ]
+}
