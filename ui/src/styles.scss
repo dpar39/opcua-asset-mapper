@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+
+#one {
+  background-color: #eee;
+  position: relative;
+}
+
+#two {
+  background-color: #555555;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.split,
+.gutter.gutter-horizontal {
+  float: left;
+  overflow-x: auto;
+  height: calc(100% - 70px);
+}
+
+.gutter.gutter-horizontal {
+  cursor: ew-resize;
+}
+
+.gutter {
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+  cursor: col-resize;
+}
+
+.gutter.gutter-vertical {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
+  cursor: row-resize;
+}
+
+.btn-group-xs > .btn,
+.btn-xs {
+  padding: 0.25rem 0.4rem;
+  font-size: 0.875rem;
+  line-height: 0.5;
+  border-radius: 0.2rem;
+}
+
+img {
+  cursor: crosshair;
+}
+
+#pixel-position,
+#pixel-color {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.collapse {
+  position: absolute;
+  display: block !important;
+  right: 0px;
+  top: 2px;
+}

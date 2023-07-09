@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">OPCUA Asset Mapper</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto"></div>
+    <span class="navbar-text mr-1" id="pixel-position"></span>
+    <span class="navbar-text mr-4 px-2" id="pixel-color"></span>
+    <span class="navbar-text mr-5">
+      Showing <b><span id="svg-count">0</span></b> svgs
+    </span>
+    <div class="form-inline my-2 my-lg-0">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search SVGs by name"
+        aria-label="Search"
+        id="search-box"
+        onchange="filterFiles()"
+      />
+      <button
+        class="btn btn-outline-success my-2 my-sm-0"
+        onclick="filterFiles()"
+      >
+        Search
+      </button>
+    </div>
+
+    <button
+      class="btn btn-primary ml-5 mr-2 my-1"
+      onclick="$('#file-picker').click()"
+    >
+      <span class="fa fa-upload fa-sm" aria-hidden="true"></span>&nbsp; Load
+      SVGs
+    </button>
+    <input
+      type="file"
+      id="file-picker"
+      name="fileList"
+      webkitdirectory
+      multiple
+      style="display: none;"
+    />
+  </div>
+</nav>
+
+
+<div>
+
+
+  <as-split direction="horizontal">
+    <as-split-area [size]="40">
+      <p>LEFT</p>
+    </as-split-area>
+    <as-split-area [size]="60">
+      <p>RIGHT</p>
+    </as-split-area>
+  </as-split>
+
+  <div class="split" id="one">
+    <app-opc-ua-address-space></app-opc-ua-address-space>
+  </div>
+
+  <div class="split container-fluid" id="two">
+
+  </div>
+
+  <app-opc-ua-connection></app-opc-ua-connection>
+</div>
