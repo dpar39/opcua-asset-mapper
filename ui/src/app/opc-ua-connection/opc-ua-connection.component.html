@@ -1,9 +1,33 @@
-<form>
-    <div class="input-group p-1">
-        <input #opcuaServerUrl type="text" class="form-control" aria-describedby="emailHelp" placeholder="opc.tcp://localhost:4840">
-        <div class="input-group-append">
-            <button class="btn btn-primary ms-2" type="button" (click)="connect()">Connect</button>
-            <button class="btn btn-primary ms-2" type="button" (click)="disconnect()">Disconnect</button>
-        </div>
-    </div>
-</form>
+<div class="input-group p-1">
+  <input
+    [(ngModel)]="opcuaServerUrl"
+    type="text"
+    class="form-control"
+    placeholder="e.g. opc.tcp://localhost:4840"
+  />
+  <div class="input-group-append">
+    <button
+      class="btn btn-primary ms-2"
+      [disabled]="
+        connectionStatus == Status.CONNECTING ||
+        connectionStatus == Status.CONNECTED ||
+        opcuaServerUrl.length == 0
+      "
+      type="button"
+      (click)="connect()"
+    >
+      Connect
+    </button>
+    <button
+      class="btn btn-primary ms-2"
+      [disabled]="
+        connectionStatus == Status.DISCONNECTING ||
+        connectionStatus == Status.DISCONNECTED
+      "
+      type="button"
+      (click)="disconnect()"
+    >
+      Disconnect
+    </button>
+  </div>
+</div>

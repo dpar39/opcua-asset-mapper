@@ -10,20 +10,24 @@ import {
   styleUrls: ['./opc-ua-connection.component.scss'],
 })
 export class OpcUaConnectionComponent {
-  @ViewChild('opcuaServerUrl') opcuaServerUrlElmt: ElementRef;
-  connectionStatus: ConnectionStatus;
+  public Status = ConnectionStatus;
+  public opcuaServerUrl: string;
+  connectionStatus: ConnectionStatus = ConnectionStatus.DISCONNECTED;
+
   constructor(public opcuaService: OpcuaConnectionService) {
     opcuaService.onConnected.subscribe((connectionStatus) =>
       this.updateConnectionStatus(connectionStatus)
     );
+    this.opcuaServerUrl = opcuaService.getLastOpcuaServerUrl();
   }
 
   updateConnectionStatus(connectionStatus: ConnectionStatus) {
     this.connectionStatus = connectionStatus;
   }
   connect() {
-    let opcuaServerUrl = this.opcuaServerUrlElmt.nativeElement.value;
-    this.opcuaService.connect(opcuaServerUrl);
+    this.opcuaService.connect(this.opcuaServerUrl);
   }
-  disconnect() {}
+  disconnect() {
+    this.opcuaService.disconnect();
+  }
 }

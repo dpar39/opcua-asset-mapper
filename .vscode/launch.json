@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "msedge",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}/ui"
+            "webRoot": "${workspaceFolder}/ui",
         },
         {
             "name": "Python: Quart App",

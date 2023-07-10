@@ -4,6 +4,10 @@ import { AddressSpaceNode } from '../models/address-space';
 
 import * as $ from 'jquery';
 import 'jstree';
+import {
+  ConnectionStatus,
+  OpcuaConnectionService,
+} from '../services/opcua-connection.service';
 
 class JsTreeNode {
   id: string;
@@ -34,13 +38,19 @@ export class OpcUaAddressSpaceComponent implements OnInit {
     })
   );
 
-  constructor(public http: HttpClient) {}
+  constructor(public opcuaService: OpcuaConnectionService) {
+    opcuaService.onConnected.subscribe((connectionStatus) => {
+      if (connectionStatus == ConnectionStatus.CONNECTED) {
+        opcuaService.getAddressSpace().subscribe((tree) => this.populateTree(tree));
+      }
+    });
+  }
 
   ngOnInit() {
     this.jsTree = $('#address-space-tree');
-    this.http
-      .get<AddressSpaceNode>('/assets/address-space.json')
-      .subscribe((tree) => this.populateTree(tree));
+    // this.http
+    //   .get<AddressSpaceNode>('/assets/address-space.json')
+    //   .subscribe((tree) => this.populateTree(tree));
   }
 
   populateTree(tree: AddressSpaceNode) {
